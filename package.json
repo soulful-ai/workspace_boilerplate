@@ -1,0 +1,13 @@
+{
+  "name": "workspace-boilerplate",
+  "version": "1.0.0",
+  "description": "Template for AI orchestration workspaces using director-actor pattern",
+  "keywords": ["ai", "orchestration", "claude", "mcp", "workspace", "template"],
+  "author": "Soulful AI",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/soulful-ai/workspace_boilerplate"
+  },
+  "private": true
+}

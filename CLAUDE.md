@@ -1,0 +1,191 @@
+# AI Orchestration Workspace
+
+You are operating in an AI orchestration workspace that coordinates multiple specialized actors through a director system. This workspace follows a flat git submodule architecture to support complex AI systems with proper task delegation, quality control, and deployment management.
+
+## Workspace Overview
+
+**Architecture**: Flat git submodule structure with all components as siblings
+**Director**: Orchestrates and delegates tasks to specialized actors
+**Actors**: Domain-specific AI instances that handle specialized tasks
+**Communication**: Shared workspace and MCP (Model Context Protocol) servers
+
+## Workspace Structure
+
+```
+workspace/                      # Your current location (workspace root)
+├── CLAUDE.md                  # This file - workspace instructions
+├── .claude/                   # Claude configuration (auto-generated)
+├── .mcp.json                  # MCP configuration (generated, gitignored)
+├── director/                  # Director orchestrator (git submodule)
+│   ├── nx.json               # Nx workspace configuration
+│   ├── prompts/              # Orchestration guides
+│   ├── apps/mcp/cli_use/     # Director MCP server
+│   └── scripts/              # Automation tools
+├── actor1/                    # Specialized actor (git submodule)
+├── actor2/                    # Another actor (git submodule)
+└── [your-actors]/            # Additional actors as needed
+```
+
+## Getting Started
+
+### 1. Initialize Workspace
+
+```bash
+# Clone this workspace template
+git clone https://github.com/[your-org]/[your-workspace]
+cd [your-workspace]
+
+# Initialize submodules
+git submodule update --init --recursive
+```
+
+### 2. Create Director
+
+```bash
+# Copy director boilerplate
+cp -r director_boilerplate my-director
+cd my-director
+
+# Initialize as your own repository
+rm -rf .git
+git init
+git add .
+git commit -m "Initial commit from director_boilerplate"
+
+# Create GitHub repository
+gh repo create [your-org]/my-director --private
+git push -u origin main
+
+# Add as submodule to workspace
+cd ..
+git submodule add https://github.com/[your-org]/my-director director
+```
+
+### 3. Add Actors
+
+```bash
+# Copy actor boilerplate
+cp -r actor_boilerplate my-actor
+cd my-actor
+
+# Customize for your domain
+# Edit CLAUDE.md, package.json, etc.
+
+# Initialize and push
+rm -rf .git
+git init
+git add .
+git commit -m "Initial commit from actor_boilerplate"
+gh repo create [your-org]/my-actor --private
+git push -u origin main
+
+# Add to workspace
+cd ..
+git submodule add https://github.com/[your-org]/my-actor my-actor
+```
+
+## Key Concepts
+
+### Director Role
+- **Strategic Management**: Analyzes requests and breaks them into tasks
+- **Task Delegation**: Assigns work to appropriate specialized actors
+- **Quality Control**: Reviews actor outputs and ensures standards
+- **User Interface**: Primary point of interaction with the user
+- **Challenge Escalation**: Immediately surfaces blockers to user
+
+### Actor Specializations
+- **Domain Expertise**: Each actor has specific knowledge and tools
+- **Autonomous Operation**: Can work independently on assigned tasks
+- **Progress Reporting**: Provides real-time updates to director
+- **Test Deployment**: Delivers user-testable environments
+- **Challenge Communication**: Escalates blockers immediately
+
+### Communication Protocol
+- **Shared Workspace**: File-based communication in `.shared-workspace/`
+- **MCP Servers**: Each component runs an MCP server for Claude integration
+- **Port Convention**: Director uses 9000, actors use 9001-9099
+- **Background Processes**: Long-running tasks use background execution
+
+## Best Practices
+
+### Workspace Management
+1. **Flat Structure**: Keep all submodules as siblings at workspace root
+2. **Independent Repos**: Each component is its own git repository
+3. **Clear Boundaries**: Director orchestrates, actors implement
+4. **Version Control**: Use git submodules for component versioning
+
+### Development Workflow
+1. **Director First**: Set up director before adding actors
+2. **Incremental Growth**: Add actors as needed for new domains
+3. **Test Locally**: Verify communication before deployment
+4. **Document Everything**: Keep CLAUDE.md files updated
+
+### Communication Patterns
+1. **Immediate Acknowledgment**: Respond to tasks quickly
+2. **Progress Updates**: Report status every 5-10 minutes
+3. **Challenge Escalation**: Surface blockers immediately
+4. **Structured Responses**: Use consistent formatting
+
+## Common Commands
+
+### Director Operations
+```bash
+cd director
+./scripts/setup-environment.sh     # Configure environment
+./scripts/generate-mcp-config.sh   # Generate MCP config
+npx nx serve                       # Start director MCP server
+```
+
+### Actor Management
+```bash
+cd my-actor
+./scripts/setup-environment.sh     # Configure actor
+npx nx serve                       # Start actor MCP server
+npx nx test                        # Run actor tests
+```
+
+### Workspace Coordination
+```bash
+# Update all submodules
+git submodule foreach 'git checkout main && git pull'
+
+# Check submodule status
+git submodule status
+
+# Start full system
+cd director && npx nx run director:start-orchestration
+```
+
+## Environment Configuration
+
+### Required Setup
+1. **Node.js**: v18 or higher
+2. **Python**: 3.8+ with uv package manager
+3. **Git**: For submodule management
+4. **Claude**: Desktop or API access
+
+### MCP Configuration
+The director generates `.mcp.json` at workspace root. This file configures Claude's access to all MCP servers in the system.
+
+## Troubleshooting
+
+### Common Issues
+- **Port conflicts**: Ensure each component uses a unique port
+- **Path errors**: Run setup scripts to detect environment
+- **Submodule issues**: Use `git submodule update --init`
+- **MCP connection**: Verify `.mcp.json` generation
+
+### Getting Help
+1. Check component README files
+2. Review prompts/ directories for guides
+3. Examine boilerplate examples
+4. Use web search for latest practices
+
+## Security Considerations
+
+- **Never commit**: `.env`, `.mcp.json`, credentials
+- **Use .gitignore**: Ensure sensitive files are excluded
+- **Environment variables**: Store secrets in `.env` files
+- **Access control**: Configure MCP security appropriately
+
+Remember: This workspace template provides the foundation. Your unique value comes from the specialized actors and orchestration logic you build!

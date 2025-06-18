@@ -1,0 +1,6 @@
+[submodule "director_boilerplate"]
+	path = director_boilerplate
+	url = https://github.com/soulful-ai/director_boilerplate.git
+[submodule "actor_boilerplate"]
+	path = actor_boilerplate
+	url = https://github.com/soulful-ai/actor_boilerplate.git

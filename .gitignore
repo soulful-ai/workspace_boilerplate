@@ -1,0 +1,65 @@
+# MCP configuration (generated)
+.mcp.json
+
+# Claude configuration
+.claude/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Dependencies - each component has its own node_modules
+*/node_modules/
+
+# Nx cache (in each component)
+*/.nx/installation
+*/.nx/cache
+*/.nx/workspace-data
+
+# Build outputs
+*/dist/
+*/build/
+*/out/
+
+# Logs
+*.log
+logs/
+*/logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*/.venv/
+*/venv/
+*.egg-info/
+.pytest_cache/
+
+# Temporary files
+*.tmp
+*.temp
+/tmp/
+*/tmp/
+
+# Test coverage
+*/coverage/
+*/.nyc_output/
+
+# Shared workspace (runtime data)
+*/.shared-workspace/tasks/*
+*/.shared-workspace/responses/*
+*/.shared-workspace/context/*
+*/.shared-workspace/logs/*
+!*/.shared-workspace/*/.gitkeep
