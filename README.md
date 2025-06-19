@@ -117,14 +117,14 @@ my-workspace/
 - MCP server implementation
 - Actor management scripts
 - Orchestration patterns
-- [View Template](director_boilerplate/)
+- [View Template](director_boilerplate/README.md)
 
 ### Actor Boilerplate
 - Domain-specific structure
 - MCP server integration
 - Task processing patterns
 - Testing framework
-- [View Template](actor_boilerplate/)
+- [View Template](actor_boilerplate/README.md)
 
 ## Key Concepts
 
