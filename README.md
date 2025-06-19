@@ -117,14 +117,14 @@ my-workspace/
 - MCP server implementation
 - Actor management scripts
 - Orchestration patterns
-- [View Template](director_boilerplate/README.md)
+- [View Template](https://github.com/soulful-ai/director_boilerplate)
 
 ### Actor Boilerplate
 - Domain-specific structure
 - MCP server integration
 - Task processing patterns
 - Testing framework
-- [View Template](actor_boilerplate/README.md)
+- [View Template](https://github.com/soulful-ai/actor_boilerplate)
 
 ## Key Concepts
 
@@ -189,8 +189,8 @@ MIT License - see [LICENSE](LICENSE) file
 
 ## Resources
 
-- [Director Boilerplate Docs](director_boilerplate/README.md)
-- [Actor Boilerplate Docs](actor_boilerplate/README.md)
+- [Director Boilerplate Docs](https://github.com/soulful-ai/director_boilerplate)
+- [Actor Boilerplate Docs](https://github.com/soulful-ai/actor_boilerplate)
 - [MCP Protocol Specification](https://modelcontextprotocol.io/)
 - [Nx Documentation](https://nx.dev/)
 
