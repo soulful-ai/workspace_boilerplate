@@ -143,7 +143,7 @@ git submodule add https://github.com/[your-org]/my-actor my-actor
 ```bash
 cd director
 ./scripts/setup-environment.sh     # Configure environment
-./scripts/generate-mcp-config.sh   # Generate MCP config
+npx nx run pm:executor:universal-config-from-template --template=.mcp.template.json --output=.mcp.json   # Generate MCP config
 npx nx serve                       # Start director MCP server
 ```
 

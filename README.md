@@ -89,7 +89,7 @@ cd director
 ./scripts/setup-environment.sh
 cp .env.example .env
 # Edit .env with your configuration
-./scripts/generate-mcp-config.sh
+npx nx run pm:executor:universal-config-from-template --template=.mcp.template.json --output=.mcp.json
 
 # Start orchestration
 npx nx run director:start-orchestration
